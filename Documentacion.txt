@@ -1,0 +1,90 @@
+link lista de reproduccuon youtube. 
+
+https://www.youtube.com/playlist?list=PLDbrnXa6SAzVxekjG2LBmJ5WxO4iypGlq&pbjreload=10
+
+
+			el proyecto se llama firstApp
+
+
+*crear un nuevo proyecto synfony 4.
+
+	symfony new (nombre del proyecto) --full
+________________________________Crear DB__________________________________
+
+*para poder crear una base de datos es necesario ir al archivo env
+y consigurar la base de datos con mysql o con el servidor que se quiera
+usar, luego luego se va a la ventana de comandos y se ejecuta el comando
+
+	php bin/console doctrine:database:create
+______________________________Crear entidades_________________________________
+
+*luego luego el doctrine tiene un gestor de creacion de base de datos
+bien, pero bien izi 
+
+*se ejecuta el comando: 
+
+	php bin/console make:entity
+
+*esete comando guia la creacion de entidades donde pregunta,
+- 1. el nombre del campo 
+- 2. tipo de campo (string, int, datatime)
+- 3. es nulo o no (yes/no)
+- 4. y luego luego se regresa al paso 1, si hay otro campo breve si no se da enter.
+
+* por ultimo se actualiza la base de datos desde el squema con el 
+comando:
+
+php bin/console doctrine:schema:update --force
+
+* para limpiar una entidad es necesario eliminar las entidades en :
+crs/Entity
+crc/repository
+
+luego luego se ejecuta el comando 
+
+php bin/console doctrine:cache help
+
+* para realizar una relacion se recomienda ver la pagina oficial en ingles de symfony 
+https://www.doctrine-project.org/projects/doctrine-orm/en/latest/tutorials/getting-started.html
+
+en la parte de ManyToOne hay un ejemplo con la entidad productos y categorias
+
+______________________Crear Un controlador.____________________________
+
+*para crear un registro se ejecuta el comando:
+ 	
+	php bin/console make:controller
+
+*luego luego pide el nombre del controlador ej RegistroController
+
+______________________Crear un formulario automaticamente.___________________
+
+*se ejecuta el coando:
+php bin/console make:form
+* luego te pide el nombre del formulario que quieres asignar
+
+* y luego te pide la entidad a la que quieres relacionar el formulario, se la tienes que escribir tal cual.
+
+ _____________________Crear un formulario login_______________________
+*codigo para añadir el bondle de security.
+
+*documentacion en: https://symfony.com/doc/current/security.html
+
+*instalacion:
+	 composer require symfony/security-bundle
+
+*creacion del formulario doc: https://symfony.com/doc/current/security/form_login_setup.html
+codigo:
+	 php bin/console make:auth
+
+______________________Para subir un archivo___________________
+usamos este tutorial: https://symfony.com/doc/current/controller/upload_file.html
+
+y donde no de un error acerca del traslator remplazamos esa linea por esta:
+$safeFilename = iconv('UTF-8', 'ASCII//TRANSLIT', $originalFilename);
+
+
+
+
+
+
